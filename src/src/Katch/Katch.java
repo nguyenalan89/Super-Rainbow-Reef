@@ -1,26 +1,30 @@
 package Katch;
 
+import Game.driver;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 
 public class Katch {
 
-    private int x,y,vx,vy;
+    private int x,y;
+    private int vx;
     private BufferedImage img;
     private boolean RightPressed;
     private boolean LeftPressed;
-    private int speed = 2;
+    private int width,height;
 
 
 
-    public Katch(int x, int y, int vx, int vy,BufferedImage img){
+    public Katch(int x, int y,int vx,BufferedImage img){
 
         this.x = x;
         this.y = y;
         this.vx = vx;
-        this.vy = vy;
         this.img = img;
+        this.width = img.getWidth();
+        this.height = img.getHeight();
     }
 
     void toggleRightPressed() {
@@ -44,7 +48,7 @@ public class Katch {
 
 
         if (this.LeftPressed) {
-            this.moveLeft();
+           this.moveLeft();
 
         }
         if (this.RightPressed) {
@@ -52,33 +56,59 @@ public class Katch {
         }
 
 
+
     }
 
+    public void moveRight() {
+
+        x -= vx;
+        checkBorder();
+
+    }
     public void moveLeft(){
-        //fixme
+
+        x+=vx;
+        checkBorder();
 
     }
 
-    public void moveRight(){
-
+    public void checkBorder(){
+        if (x < 20) {
+            x = 20;
+        }
+        if (x >= driver.SCREEN_WIDTH - 100) {
+            x = driver.SCREEN_WIDTH - 100;
+        }
 
     }
-
 
 
     @Override
     public String toString() {
-        return "x=" + x + ", y=" + y;
+        return "x =" + x;
     }
 
 
     public void drawImage(Graphics g, ImageObserver obs){
 
-        g.drawImage(img,x,y,obs);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.drawImage(img,x,y,obs);
 
 
 
     }
 
+    public Rectangle getRect(){
 
+        return new Rectangle(x,y,getWidth(),getHeight());
+    }
+
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
 }

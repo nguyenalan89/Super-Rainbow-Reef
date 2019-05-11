@@ -1,33 +1,27 @@
-package Wall;
+package Blocks;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 
-public class Wall{
+
+public class Blocks {
 
     private BufferedImage img;
-    private int x,y;
+    private int x,y,points;
     private boolean breakable;
     private int width,height;
 
-    public Wall(BufferedImage img, int x, int y){
 
+    public Blocks(BufferedImage img, int x, int y, int points){
         this.img = img;
         this.x = x;
         this.y = y;
-        this.width = img.getWidth();
-        this.height = img.getHeight();
+        this.points = points;
         breakable = false;
-
+        width = img.getWidth(null);
+        height = img.getHeight(null);
     }
-
-   public Rectangle getRect(){
-
-        return new Rectangle(x,y,getWidth(),getHeight());
-   }
-
-
 
 
 
@@ -39,10 +33,23 @@ public class Wall{
         return y;
     }
 
-
-    public BufferedImage getImg() {
+    public BufferedImage getImg(){
         return img;
     }
+
+
+    public boolean isBreakable() {
+        return breakable;
+    }
+
+    public void setBreakable(boolean breakable) {
+        this.breakable = breakable;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
 
     public int getWidth() {
         return width;
@@ -51,12 +58,7 @@ public class Wall{
     public int getHeight() {
         return height;
     }
-
-    public boolean isBreakable() {
-        return breakable;
-    }
-
-    public void setBreakable(boolean breakable) {
-        this.breakable = breakable;
+    public Rectangle getRect(){
+        return new Rectangle(x,y,getWidth(),getHeight());
     }
 }
