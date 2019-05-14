@@ -104,6 +104,7 @@ public class Katch {
     }
 
 
+
     public int getWidth() {
         return width;
     }

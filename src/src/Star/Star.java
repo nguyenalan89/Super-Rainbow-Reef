@@ -2,7 +2,6 @@ package Star;
 
 import Game.driver;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
@@ -13,8 +12,11 @@ public class Star{
     private int x,y;
     private int vx,vy;
     private int width, height;
+    private boolean visible;
+    private int lives;
 
-    public Star(BufferedImage img,int x,int y){
+
+    public Star(BufferedImage img,int x,int y,int lives){
         this.img = img;
         this.x = x;
         this.y = y;
@@ -22,15 +24,18 @@ public class Star{
         this.height = img.getHeight(null);
         this.vx = 1;
         this.vy = -1;
+        visible = true;
+        this.lives = lives;
+
 
     }
-    //CREDIT http://zetcode.com/tutorials/javagamestutorial/breakout/
+
     public void update() {
 
         x += vx;
         y += vy;
 
-        if (x == 0) {
+        if (x == 20) {
             setVx(1);
         }
 
@@ -38,7 +43,8 @@ public class Star{
             setVx(-1);
         }
 
-        if (y == 0) {
+
+        if (y == 20) {
             setVy(1);
         }
 
@@ -57,6 +63,11 @@ public class Star{
     public Rectangle getRect(){
 
         return new Rectangle(x,y,getWidth(),getHeight());
+
+    }
+
+    public BufferedImage getImg() {
+        return img;
     }
 
     public int getX() {
@@ -90,5 +101,18 @@ public class Star{
 
     public void setVy(int vy) {
         this.vy = vy;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
     }
 }

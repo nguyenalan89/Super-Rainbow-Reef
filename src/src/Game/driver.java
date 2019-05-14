@@ -8,12 +8,9 @@ import Wall.Wall;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -23,20 +20,23 @@ public class driver extends JPanel{
 
 
     public static final int SCREEN_WIDTH = 640;
-    private static final int SCREEN_HEIGHT = 470;
+    public static final int SCREEN_HEIGHT = 470;
     private BufferedImage world,bImg,katch,star1,walls,octo;
     private BufferedImage b1,b2,b3,b4,b5,b6,b7,solidB,lifeB;
     private static Katch k1;
     private Graphics2D buffer;
     private JFrame jf;
-    private String line;
-    private int position;
     private static Star s1;
+    private int score;
+    private int lives;
+
 
 
 
     private ArrayList<Wall> borderWall = new ArrayList();
     private ArrayList<Blocks> blocks = new ArrayList<>();
+    private ArrayList<Star> star = new ArrayList<>();
+
 
 
 
@@ -50,8 +50,7 @@ public class driver extends JPanel{
           while (true) {
 
                 driver.k1.update();
-                driver.s1.update();
-                game.checkCollisions();
+                game.updateGame();
                 game.repaint();
                 System.out.println(driver.k1);
                 Thread.sleep(1000 / 144);
@@ -64,7 +63,9 @@ public class driver extends JPanel{
 
 
     private void init() {
-        this.jf = new JFrame("Super Rainbow Reef");
+
+
+       this.jf = new JFrame();
 
         katch = null;
 
@@ -95,38 +96,50 @@ public class driver extends JPanel{
 
             //breakable blocks
             for(int i = 0; i < 10; i++){
-                blocks.add(new Blocks(b1,120,20*i,10));
+                blocks.add(new Blocks(b6,20,20*i,10));
             }
             for(int i = 0; i < 10; i++){
-                blocks.add(new Blocks(b2,160,20*i,10));
+                blocks.add(new Blocks(b3,60,20*i,10));
             }
             for(int i = 0; i < 10; i++){
-                blocks.add(new Blocks(solidB,200,20*i,0));
+                blocks.add(new Blocks(b7,100,20*i,10));
             }
             for(int i = 0; i < 10; i++){
-                blocks.add(new Blocks(b4,240,20*i,10));
+                blocks.add(new Blocks(b1,140,20*i,10));
             }
             for(int i = 0; i < 10; i++){
-                blocks.add(new Blocks(b5,280,20*i,10));
+                blocks.add(new Blocks(b2,180,20*i,10));
             }
             for(int i = 0; i < 10; i++){
-                blocks.add(new Blocks(solidB,320,20*i,0));
+                blocks.add(new Blocks(b3,220,20*i,10));
             }
             for(int i = 0; i < 10; i++){
-                blocks.add(new Blocks(b6,360,20*i,10));
+                blocks.add(new Blocks(b4,260,20*i,10));
             }
             for(int i = 0; i < 10; i++){
-                blocks.add(new Blocks(b7,400,20*i,10));
+                blocks.add(new Blocks(b5,300,20*i,10));
             }
             for(int i = 0; i < 10; i++){
-                blocks.add(new Blocks(solidB,440,20*i,10));
+                blocks.add(new Blocks(b2,340,20*i,10));
             }
             for(int i = 0; i < 10; i++){
-                blocks.add(new Blocks(b2,480,20*i,10));
+                blocks.add(new Blocks(b6,380,20*i,10));
             }
-
-            //fixme add heart blocks and octopus
-
+            for(int i = 0; i < 10; i++){
+                blocks.add(new Blocks(b7,420,20*i,10));
+            }
+            for(int i = 0; i < 10; i++){
+                blocks.add(new Blocks(b5,460,20*i,10));
+            }
+            for(int i = 0; i < 10; i++){
+                blocks.add(new Blocks(b3,500,20*i,10));
+            }
+            for(int i = 0; i < 10; i++){
+                blocks.add(new Blocks(b1,540,20*i,10));
+            }
+            for(int i = 0; i < 10; i++){
+                blocks.add(new Blocks(b2,580,20*i,10));
+            }
 
 
 
@@ -143,19 +156,17 @@ public class driver extends JPanel{
 
 
 
-
-
-
         } catch (IOException e) {
 
         }
 
 
 
-        k1 = new Katch(300,400,1,katch);
+        k1 = new Katch(300,400,2,katch);
+
         KatchControl kc1 = new KatchControl(k1,KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT);
 
-        s1 = new Star(star1,300,350);
+        s1 = new Star(star1,300,350,3);
 
 
         this.jf.setLayout(new BorderLayout());
@@ -171,7 +182,22 @@ public class driver extends JPanel{
         this.jf.setVisible(true);
 
 
+
+
+
     }
+
+    public void updateGame(){
+
+        s1.update();// updates the stars movement
+
+        checkCollisions();
+
+        jf.setTitle("Super Rainbow Reef \t\tScore: " + score);
+
+
+    }
+
 
     @Override
     public void paintComponent(Graphics g) {
@@ -182,15 +208,27 @@ public class driver extends JPanel{
 
 
 
-
     }
 
+
+
+
+
+
+
+
+
+
+
     public void drawDemo(Graphics g){
+
 
         g.drawImage(bImg,0,0,this);
 
         k1.drawImage(g,this);
         s1.drawImage(g,this);
+
+
 
         //displays breakable blocks
         for(int i = 0; i < blocks.size(); i++){
@@ -201,21 +239,90 @@ public class driver extends JPanel{
             g.drawImage(borderWall.get(i).getImg(),borderWall.get(i).getX(),borderWall.get(i).getY(),this);
         }
 
+//        for(int i = 0; i < star.size(); i++ ){
+//            g.drawImage(star.get(i).getImg(),star.get(i).getX(),star.get(i).getY(),this);
+//        }
+
+
 
 
 
     }
 
-    private void checkCollisions(){
-
-        //fixme check collsions for star, blocks and walls
 
 
 
-        //this only hits right side of the katch
-        if(s1.getRect().intersects(k1.getRect())){
-            s1.setVx(-1);
-            s1.setVy(-1);
+
+
+
+    //CREDIT http://zetcode.com/tutorials/javagamestutorial/breakout/
+    private void checkCollisions() {
+
+        /*
+        Checking collisions between the star and the katch.
+        The katch(paddle) is split up into 4 quadrants, each has
+        a different bounce deflection.
+
+         */
+        if (s1.getRect().intersects(k1.getRect())) {
+
+            int katchPos = (int) k1.getRect().getMinX();
+            int starPos = (int) s1.getRect().getMinX();
+
+            //fixme calculations of the katch
+            int first = katchPos + k1.getWidth()/4;
+            int second = katchPos + k1.getWidth()/3;
+            int third = katchPos + k1.getWidth()/2;
+            int fourth = katchPos + k1.getWidth();
+
+            if (starPos < first) {
+
+                s1.setVx(-1);
+                s1.setVy(-1);
+
+            }
+
+            if (starPos >= first && starPos < second) {
+
+                s1.setVx(-1);
+                s1.setVy(-1 * s1.getVy());
+
+            }
+
+            if (starPos >= second && starPos < third) {
+
+                s1.setVx(0);
+                s1.setVy(-1);
+            }
+
+            if (starPos >= third && starPos < fourth) {
+                s1.setVx(1);
+                s1.setVy(-1 * s1.getVy());
+            }
+
+            if (starPos > fourth) {
+                s1.setVx(1);
+                s1.setVy(1);
+
+            }
+
+        }
+
+        for (int i = 0; i < blocks.size(); i++) {
+
+
+            //fixme block collisions, check when it bounces on bottom,top or side.
+            if (s1.getRect().intersects(blocks.get(i).getRect())) {
+
+                s1.setVy(1);
+                this.score += blocks.get(i).getPoints();
+                blocks.remove(i);
+
+
+            }
+
+
+
         }
 
 
@@ -223,6 +330,7 @@ public class driver extends JPanel{
 
     }
 
+    //fixme checklist: add lives, add gameover
 
 
 
