@@ -35,7 +35,7 @@ public class driver extends JPanel{
 
     private ArrayList<Wall> borderWall = new ArrayList();
     private ArrayList<Blocks> blocks = new ArrayList<>();
-    private ArrayList<Star> star = new ArrayList<>();
+
 
 
 
@@ -239,9 +239,6 @@ public class driver extends JPanel{
             g.drawImage(borderWall.get(i).getImg(),borderWall.get(i).getX(),borderWall.get(i).getY(),this);
         }
 
-//        for(int i = 0; i < star.size(); i++ ){
-//            g.drawImage(star.get(i).getImg(),star.get(i).getX(),star.get(i).getY(),this);
-//        }
 
 
 
