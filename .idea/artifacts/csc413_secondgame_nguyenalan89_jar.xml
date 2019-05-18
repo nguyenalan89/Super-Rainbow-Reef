@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="csc413-secondgame-nguyenalan89:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/csc413_secondgame_nguyenalan89_jar</output-path>
+    <root id="archive" name="csc413-secondgame-nguyenalan89.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

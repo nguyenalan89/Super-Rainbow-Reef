@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="csc413-secondgame-nguyenalan89:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e94db3f0-3a46-4986-80fe-dc883e15c1dc" name="Default Changelist" comment="working on brick collisions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Layout.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jar/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/Game/driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/Game/driver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/Game/driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/Game/driver.java" afterDir="false" />
     </list>
@@ -20,11 +24,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/src/Game/driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
+            <state relative-caret-position="320">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1557948552310" expanded="true" signature="1108:1123" ph="..." />
+                <marker date="1558152509262" expanded="true" signature="1166:1181" ph="..." />
               </folding>
             </state>
           </provider>
@@ -129,10 +133,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="90" />
-    <option name="y" value="116" />
-    <option name="width" value="1160" />
-    <option name="height" value="734" />
+    <option name="y" value="23" />
+    <option name="width" value="1135" />
+    <option name="height" value="827" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -142,6 +145,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -149,39 +154,33 @@
               <item name="csc413-secondgame-nguyenalan89" type="b2602c69:ProjectViewProjectNode" />
               <item name="csc413-secondgame-nguyenalan89" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="csc413-secondgame-nguyenalan89" type="b2602c69:ProjectViewProjectNode" />
-              <item name="csc413-secondgame-nguyenalan89" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557947155436" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558155133064" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/resources" />
-      <recent name="$PROJECT_DIR$/src/src" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/src/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/jar" />
+      <recent name="$PROJECT_DIR$/out/artifacts/csc413_secondgame_nguyenalan89_jar" />
+      <recent name="$PROJECT_DIR$/out/artifacts/src_jar" />
+      <recent name="$PROJECT_DIR$/src/resources" />
+      <recent name="$PROJECT_DIR$/src/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -243,17 +242,21 @@
       <workItem from="1557947210701" duration="1000" />
       <workItem from="1557947218774" duration="1000" />
       <workItem from="1557948529619" duration="47000" />
+      <workItem from="1557977402694" duration="116000" />
+      <workItem from="1558140353317" duration="2754000" />
+      <workItem from="1558154141024" duration="271000" />
+      <workItem from="1558154526874" duration="702000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56125000" />
+    <option name="totallyTimeSpent" value="59968000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="90" y="116" width="1160" height="734" extended-state="0" />
+    <frame x="0" y="23" width="1135" height="827" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20125224" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27447394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -262,7 +265,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3753894" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37414965" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -270,7 +273,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32789117" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3265306" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3292517" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -448,17 +451,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/src/Game/driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1557948552310" expanded="true" signature="1108:1123" ph="..." />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/jar/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/csc413_secondgame_nguyenalan89_jar.xml" />
     <entry file="file://$PROJECT_DIR$/src/src/Katch/Katch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1274">
@@ -521,16 +518,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/Game/driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1558152509262" expanded="true" signature="1166:1181" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>csc413-secondgame-nguyenalan89:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

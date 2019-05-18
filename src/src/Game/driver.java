@@ -28,13 +28,14 @@ public class driver extends JPanel{
     private JFrame jf;
     private static Star s1;
     private int score;
-    private int lives;
+    private int lives = 3;
 
 
 
 
     private ArrayList<Wall> borderWall = new ArrayList();
     private ArrayList<Blocks> blocks = new ArrayList<>();
+    private ArrayList<Star> life = new ArrayList<>();
 
 
 
@@ -154,6 +155,8 @@ public class driver extends JPanel{
                 borderWall.add(new Wall(walls,SCREEN_WIDTH - 20,20*i));
             }
 
+//            life.add(new Star(star1,300,350,3));
+
 
 
         } catch (IOException e) {
@@ -162,7 +165,7 @@ public class driver extends JPanel{
 
 
 
-        k1 = new Katch(300,400,2,katch);
+        k1 = new Katch(300,425,2,katch);
 
         KatchControl kc1 = new KatchControl(k1,KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT);
 
@@ -193,7 +196,8 @@ public class driver extends JPanel{
 
         checkCollisions();
 
-        jf.setTitle("Super Rainbow Reef \t\tScore: " + score);
+
+        jf.setTitle("Super Rainbow Reef \t\tScore: " + score + "\tLives: " + lives);
 
 
     }
@@ -213,13 +217,6 @@ public class driver extends JPanel{
 
 
 
-
-
-
-
-
-
-
     public void drawDemo(Graphics g){
 
 
@@ -227,7 +224,6 @@ public class driver extends JPanel{
 
         k1.drawImage(g,this);
         s1.drawImage(g,this);
-
 
 
         //displays breakable blocks
@@ -239,15 +235,18 @@ public class driver extends JPanel{
             g.drawImage(borderWall.get(i).getImg(),borderWall.get(i).getX(),borderWall.get(i).getY(),this);
         }
 
-
-
+//        for(int i = 0; i <= lives; i++){
+//
+//           if(s1.getRect().getMinY() > k1.getRect().getMinY()) {
+//               g.drawImage(life.get(i).getImg(), life.get(i).getX(), life.get(i).getY(), this);
+//
+//           }
+//
+//        }
 
 
 
     }
-
-
-
 
 
 
