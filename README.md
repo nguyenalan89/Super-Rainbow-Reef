@@ -1,7 +1,4 @@
-# csc413-Super Rainbow Reef 2 
-
-## Student Name : Alan Nguyen
-## Student ID : 916570387
+Super Rainbow Reef  
 
 ##Controls:
 Move Left: Left Arrow<br>
